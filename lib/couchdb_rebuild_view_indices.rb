@@ -82,7 +82,7 @@ module CouchdbRebuildViewIndices
       begin
         Net::HTTP.start(uri.hostname, uri.port) { |http| http.request(req) }
       rescue Net::ReadTimeout
-        make_request_with_retries(url, retries - 1)
+        make_request_with_retries(uri, retries - 1)
       end
     end
   end
