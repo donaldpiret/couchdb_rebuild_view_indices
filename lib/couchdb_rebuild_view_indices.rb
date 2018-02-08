@@ -20,6 +20,7 @@ module CouchdbRebuildViewIndices
 
     def initialize(options)
       @options = @@default_options.merge!(options)
+      @options[:retries] = @options[:retries].to_i
       @logger = Logger.new(STDOUT)
       @logger.level = @options[:log_level]
       @logger.debug 'Running with options:'
